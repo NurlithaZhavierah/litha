@@ -1,0 +1,47 @@
+list_genre = {
+    "action": ["Avengers", "Mission Impossible", "Godzilla x kong"],
+    "horor": ["Annabelle", "Pengabdi Setan", "The Nun 1", "The Nun 2", "Ronggeng kematian", "Exhuma"],
+    "comedy": ["The Hangover", "Superbad", "Pitch Perfect"],
+    "anime": ["Spirited Away", "haikyuu", "Naruto"],
+}
+
+harga_hari_biasa = 45000
+harga_akhir_pekan = 50000
+
+print("List genre:")
+for index, genre in enumerate(list_genre.keys(), start=1):
+    print(f"{index}. {genre.capitalize()}")
+
+pilih_genre = input("Pilih jenis genre (gunakan angka atau nama): ").lower()
+
+if pilih_genre in list_genre:
+    print(f"\nContoh {pilih_genre.capitalize()}:")
+    for film in list_genre[pilih_genre]:
+        print(f"Genre {pilih_genre} - {film}")
+
+    pilih_film = input("\nPilih film (gunakan angka atau nama): ")
+
+    waktu_nonton = input("Masukkan hari: ").lower()
+    if waktu_nonton in ["sabtu", "minggu"]:
+        harga_tiket = harga_akhir_pekan
+    else:
+        harga_tiket = harga_hari_biasa
+
+    quantity = int(input("Masukkan jumlah tiket: "))
+
+    confirm = input("Beli tiket? (y/n): ").lower()
+    if confirm == "y":
+        nama = input("Masukkan nama: ")
+        usia = int(input("Masukkan usia: "))
+        
+        # Menampilkan detail data
+        print("\nDetail Data:")
+        print(f"1. Nama: {nama}")
+        print(f"2. Umur: {usia}")
+        print(f"3. Genre: {pilih_genre.capitalize()}")
+        print(f"4. Film: {list_genre[pilih_genre][int(pilih_film) - 1]}")
+        print(f"5. Harga: {harga_tiket * quantity}")
+        print(f"6. Waktu: {waktu_nonton.capitalize()}")
+    else:
+        print("Transaksi dibatalkan.")
+
